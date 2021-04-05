@@ -12,7 +12,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.metrics import confusion_matrix, roc_curve, roc_auc_score
 from xgboost import XGBClassifier
 
 class Classifier:
@@ -20,6 +19,7 @@ class Classifier:
         self.X_train, self.y_train = X_train, y_train
         self.seed = seed
     
+    @property
     def train(self):
         models = [
             ('Logistic Regression Classifier (LRCV)', LogisticRegressionCV(cv=5, scoring='accuracy', random_state=self.seed)),

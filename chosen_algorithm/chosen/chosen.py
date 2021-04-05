@@ -30,7 +30,7 @@ class Chosen(object):
             self.X_train = StandardScaler().fit_transform(self.X_train)
             return
 
-    
+    @property
     def train(self):
         if isinstance(self, Chosen):
             self.make_scaling()
@@ -39,9 +39,8 @@ class Chosen(object):
             elif self.model_type == 'prediction':
                 model = Prediction(self.X_train, self.y_train, self.seed)
             else:
-                print(' Model error')
-                return
-            table,results,names = model.train()
+                raise ValueError('Model type error')
+            table,results,names = model.train
             self.rendering(table,results,names)
     
     def rendering(self, table,results,names):

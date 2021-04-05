@@ -10,7 +10,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.naive_bayes import GaussianNB
-from sklearn.metrics import confusion_matrix, roc_curve, roc_auc_score
 from xgboost import XGBRegressor
 
 class Prediction:
@@ -18,6 +17,7 @@ class Prediction:
         self.X_train, self.y_train = X_train, y_train
         self.seed = seed
     
+    @property
     def train(self):
         models = [
             ('Linearc Regression (LR)', LinearRegression()),
@@ -27,7 +27,7 @@ class Prediction:
             ('Gaussian Naives Bayes (NB)', GaussianNB())
         ]
 
-        results, names, table, scoring = [], [], [["Name", "Score Mean", "Standard deviation"]], 'precision'
+        results, names, table = [], [], [["Name", "Score Mean", "Standard deviation"]]
         for name, model in models:
             kfold = KFold(n_splits=10, random_state=self.seed)
             cv_results = cross_val_score(model, self.X_train, self.y_train, cv=kfold)
