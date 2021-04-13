@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Mar 28 17:54:27 2021
-
-@author: Godwin
-"""
-
 from sklearn.model_selection import cross_val_score, KFold
 from sklearn.linear_model import LogisticRegressionCV
 from sklearn.svm import SVC
@@ -14,16 +7,19 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
 from xgboost import XGBClassifier
 
+
 class Classifier:
-    def __init__(self, X_train, y_train, seed):
-        self.X_train, self.y_train = X_train, y_train
+    def __init__(self, x_train, y_train, seed):
+        self.X_train, self.y_train = x_train, y_train
         self.seed = seed
-    
+
     @property
     def train(self):
         models = [
-            ('Logistic Regression Classifier (LRCV)', LogisticRegressionCV(cv=5, scoring='accuracy', random_state=self.seed)),
-           ('XG Boost Classifier (XGB)', XGBClassifier(use_label_encoder=False, objective="binary:hinge", random_state=self.seed)),
+            ('Logistic Regression Classifier (LRCV)',
+             LogisticRegressionCV(cv=5, scoring='accuracy', random_state=self.seed)),
+            ('XG Boost Classifier (XGB)',
+             XGBClassifier(use_label_encoder=False, objective="binary:hinge", random_state=self.seed)),
             ('K-Neighbors Classifier (KNN)', KNeighborsClassifier(n_neighbors=5, algorithm='auto')),
             ('Decision Tree Classifier (CART)', DecisionTreeClassifier(random_state=self.seed)),
             ('Random Forest Classifier (RFC)', RandomForestClassifier(n_estimators=100, random_state=self.seed)),
@@ -37,5 +33,5 @@ class Classifier:
             cv_results = cross_val_score(model, self.X_train, self.y_train, cv=kfold, scoring=scoring)
             results.append(cv_results)
             names.append(name)
-            table.append([name, cv_results.mean(), cv_results.std()])
-        return table,results,names
+            table.append([name, f'{cv_results.mean():.2f}', f'{cv_results.std():.2f}'])
+        return table, results, names

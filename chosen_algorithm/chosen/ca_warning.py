@@ -1,0 +1,2 @@
+class ModelTypeError(RuntimeError):
+    pass
