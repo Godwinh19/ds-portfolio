@@ -17,23 +17,21 @@ class Chosen(object):
         self.X_train, self.y_train = X_train, y_train
         self.model_type = model_type
         self.scaling, self.scaling_method, self.seed = scaling, scaling_method, seed
-    
-    def make_scaling(self):
+
+    def __make_scaling(self):
         if self.scaling_method =='standard':
             self.X_train = StandardScaler().fit_transform(self.X_train)
-            return
         elif self.scaling_method =='min_max':
             self.X_train = MinMaxScaler().fit_transform(self.X_train)
-            return
         else:
             print("Warning! No scalling method given. StandarScaler will be use as default.")
             self.X_train = StandardScaler().fit_transform(self.X_train)
-            return
 
     @property
     def train(self):
         if isinstance(self, Chosen):
-            self.make_scaling()
+            if self.scaling: self.__make_scaling()
+
             if self.model_type == 'classification':
                 model = Classifier(self.X_train, self.y_train, self.seed)
             elif self.model_type == 'prediction':
