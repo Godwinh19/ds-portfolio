@@ -24,6 +24,6 @@ model.train()
 __We got__
 
 ![Use case](./images/output_use_case.PNG)
-__Within th boxplot__
+__Within the boxplot__
 ![Use case](./images/boxplot.png)
 
