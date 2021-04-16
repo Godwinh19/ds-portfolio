@@ -3,7 +3,7 @@
 
 * Notes takes from [Here](https://www.bounteous.com/insights/2020/09/15/forecasting-time-series-model-using-python-part-one/)
 
-For model-comparaison-sarima-lstm-prophet, we have : 
+For model-comparison-sarima-lstm-prophet, we have : 
 | Models  | MEAN | RMSE  Errors  | MSE  Errors|
 | :-------------: | :------------- | :-------------: | :-------------: |
 |  SARIMA  |  148.42 |  8.14  | 66.18  |
