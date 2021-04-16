@@ -8,6 +8,6 @@ For model-comparaison-sarima-lstm-prophet, we have :
 | :-------------: | :------------- | :-------------: | :-------------: |
 |  SARIMA  |  148.42 |  8.14  | 66.18  |
 |  LSTM  |  148.42 |  10.77  | 116.02  |
-|  SARIMA  |  148.42 |  11.48  | 131.69  |
+|  PROPHET  |  148.42 |  11.48  | 131.69  |
 
 * Then SARIMA fit well (with simple tuning) to the monthly beer production dataset.
