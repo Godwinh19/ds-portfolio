@@ -28,4 +28,17 @@ get_recommendations('Father of the Bride Part II')
 | The Magic of Méliès |
 | .......................|
 
-We'll improve again the second part to take account others features like director, actor, keywords, etc.
+[x] We'll improve again the second part to take account others features like the director, actors, keywords and the movie genres.
+
+## Results
+```python
+get_recommendations('Father of the Bride Part II', cosine_similarity)
+```
+| title  | 
+| :------------:|
+| Baby Boom |
+| Father of the Bride |
+| ¡Three Amigos! |
+| Hanging Up |
+| Das merkwürdige Verhalten geschlechtsreifer Gr... |
+| .......................|
