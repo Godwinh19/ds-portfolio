@@ -86,8 +86,8 @@ model.train()
 ```
 __We got__
 
-![Use case](.chosen_algorithm/images/output_use_case.PNG)
+![Use case](../chosen_algorithm/images/output_use_case.PNG)
 __Within the boxplot__
-![Use case](.chosen_algorithm/images/boxplot.png)
+![Use case](../chosen_algorithm/images/boxplot.png)
 
 
